@@ -1,7 +1,6 @@
 import React, { useLayoutEffect, useState, useRef } from 'react';
 import { View, Text, RefreshControl, Alert, FlatList } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import * as Haptics from 'expo-haptics';
 import { useRouter, useNavigation } from 'expo-router';
 
 import { useAtomValue } from 'jotai';

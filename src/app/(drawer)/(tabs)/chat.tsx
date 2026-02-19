@@ -3,7 +3,6 @@ import { View, Text, TextInput, Pressable, Alert, FlatList } from 'react-native'
 import { KeyboardAvoidingView } from 'react-native-keyboard-controller';
 import { StyleSheet, useUnistyles } from 'react-native-unistyles';
 import { Ionicons } from '@expo/vector-icons';
-import * as Haptics from 'expo-haptics';
 
 import { useAtomValue, useSetAtom } from 'jotai';
 
@@ -47,7 +46,6 @@ function ChatConnected() {
 
 		const textToSend = inputText.trim();
 		setInputText('');
-		Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
 
 		const outgoingMessage: ChatMessage = {
 			id: `${Date.now()}-${Math.random().toString(36).substring(2, 9)}`,
