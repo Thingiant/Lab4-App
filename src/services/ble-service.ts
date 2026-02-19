@@ -89,10 +89,7 @@ export class BleService {
 	// Scanning Methods
 	// ==========================================================================
 
-	public async startScan(
-		onDeviceScanned: (result: Result<Device, BleError>) => void,
-		filterByServiceUUID: boolean = false,
-	): Promise<Result<void, BleError>> {
+	public async startScan(onDeviceScanned: (result: Result<Device, BleError>) => void,	filterByServiceUUID: boolean = false): Promise<Result<void, BleError>> {
 		const serviceUUIDs = filterByServiceUUID ? [BLE_SERVICE_UUID] : null;
 		try {
 			await this.manager.startDeviceScan(serviceUUIDs, null, (error, device) => {
