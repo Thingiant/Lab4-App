@@ -4,7 +4,6 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useRouter, useNavigation } from 'expo-router';
 
 import { useAtomValue } from 'jotai';
-import { useTimeout } from 'usehooks-ts';
 
 import { DeviceCard, ScanButton } from '@/components/scanner';
 import { Center } from '@/components/ui/Center';
