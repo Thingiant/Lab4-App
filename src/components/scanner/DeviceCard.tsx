@@ -145,13 +145,4 @@ const styles = StyleSheet.create((theme) => ({
 		color: theme.colors.contentTertiary,
 		marginTop: 2,
 	},
-	favoriteButton: {
-		padding: theme.spacing.xsmall,
-	},
-	favoriteActive: {
-		color: theme.colors.sunshine,
-	},
-	favoriteInactive: {
-		color: theme.colors.contentTertiary,
-	},
 }));

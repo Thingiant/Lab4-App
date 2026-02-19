@@ -1,20 +1,18 @@
 import React, { useCallback, useState } from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Ionicons } from '@expo/vector-icons';
 
 import { useAtomValue } from 'jotai';
 
+import { DeviceHeader } from '@/components/device/DeviceHeader';
 import { NotConnected } from '@/components/common/NotConnected';
-import { CharacteristicItem, ServiceItem, StatCard } from '@/components/device';
+import { ServiceItem, StatCard } from '@/components/device';
 import { RssiIndicator } from '@/components/scanner';
 import { Card } from '@/components/ui/Card';
-import { Center } from '@/components/ui/Center';
 import { HStack } from '@/components/ui/HStack';
-import { VStack } from '@/components/ui/VStack';
 import { useBleDevice } from '@/hooks/ble';
 import { discoveredServicesAtom, isConnectedAtom } from '@/store/ble-atoms';
-import type { ServiceInfo } from '@/types/ble-types';
+import { useBleConnection } from '@/hooks/ble';
 
 type ExpandedSections = Record<string, boolean>;
 
@@ -43,28 +41,13 @@ function DeviceContent(): React.ReactElement {
 		return <NotConnected />;
 	}
 
-	const displayName = device.name || device.localName || 'Unknown Device';
 	const mtu = device.mtu ?? 0;
 	const totalCharacteristics = services.reduce((acc, s) => acc + s.characteristics.length, 0);
 
 	return (
 		<ScrollView style={styles.container} contentContainerStyle={styles.content}>
 			{/* Device Header */}
-			<Card style={styles.headerCard}>
-				<HStack style={styles.deviceHeader}>
-					<Center style={styles.deviceIconContainer}>
-						<Ionicons name="bluetooth" size={32} color={styles.deviceIcon.color} />
-					</Center>
-					<VStack style={styles.deviceInfo}>
-						<Text style={styles.deviceName}>{displayName}</Text>
-						<Text style={styles.deviceId}>{device.id.toString()}</Text>
-					</VStack>
-					<HStack style={styles.connectionBadge}>
-						<View style={styles.connectionDot} />
-						<Text style={styles.connectionText}>Connected</Text>
-					</HStack>
-				</HStack>
-			</Card>
+			<DeviceHeader device={device}/>
 
 			{/* Device Stats */}
 			<HStack style={styles.statsGrid}>
