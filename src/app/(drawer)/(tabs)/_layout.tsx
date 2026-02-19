@@ -3,7 +3,6 @@ import { Pressable, Alert } from 'react-native';
 import { StyleSheet, useUnistyles } from 'react-native-unistyles';
 import { useNavigation, DrawerActions } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import * as Haptics from 'expo-haptics';
 import { Tabs, useRouter } from 'expo-router';
 
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
@@ -51,7 +50,6 @@ export default function TabsLayout(): React.ReactElement {
   const handleClearMessages = useCallback(() => {
     clearChatMessages();
     clearNotificationHistory();
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   }, [clearChatMessages, clearNotificationHistory]);
 
   async function handleDisconnect() {
