@@ -1,0 +1,13 @@
+{
+	// Editor formatting
+	"editor.tabSize": 2,
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"editor.colorDecorators": true,
+	// "color-highlight.languages": ["javascript", "typescript", "json", "jsonc"],
+	// "color-highlight.markerType": "dot-before",
+	"cSpell.words": ["mmkv", "moti", "RSSI", "sfourdrinier"]
+}

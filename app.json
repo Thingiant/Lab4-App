@@ -1,0 +1,69 @@
+{
+	"expo": {
+		"name": "Lab4",
+		"slug": "lab4",
+		"scheme": "lab4",
+		"version": "0.1.0",
+		"newArchEnabled": true,
+		"userInterfaceStyle": "automatic",
+		"orientation": "portrait",
+		"icon": "./assets/images/icon.png",
+		"web": {
+			"output": "static",
+			"favicon": "./assets/images/favicon.png"
+		},
+		"ios": {
+			"supportsTablet": true,
+			"bundleIdentifier": "com.tacam.lab4app",
+			"infoPlist": {
+				"NSBluetoothAlwaysUsageDescription": "This app uses Bluetooth to connect to and communicate with BLE devices.",
+				"NSBluetoothPeripheralUsageDescription": "This app uses Bluetooth to connect to and communicate with BLE devices."
+			}
+		},
+		"android": {
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/images/adaptive-icon.png",
+				"backgroundColor": "#ffffff"
+			},
+			"predictiveBackGestureEnabled": false,
+			"edgeToEdgeEnabled": true,
+			"package": "com.tacam.lab4app",
+			"permissions": [
+				"android.permission.BLUETOOTH",
+				"android.permission.BLUETOOTH_CONNECT",
+				"android.permission.BLUETOOTH_SCAN",
+				"android.permission.ACCESS_FINE_LOCATION"
+			]
+		},
+		"plugins": [
+			"expo-router",
+			[
+				"@sfourdrinier/react-native-ble-plx",
+				{
+					"isBackgroundEnabled": true,
+					"androidEnableForegroundService": true,
+					"modes": ["central"],
+					"bluetoothAlwaysPermission": "Allow $(PRODUCT_NAME) to connect to bluetooth devices"
+				}
+			],
+			[
+				"expo-splash-screen",
+				{
+					"image": "./assets/images/splash.png",
+					"imageWidth": 200,
+					"resizeMode": "contain",
+					"backgroundColor": "#ffffff",
+					"dark": {
+						"backgroundColor": "#000000"
+					}
+				}
+			],
+			"react-native-edge-to-edge"
+		],
+		"experiments": {
+			"typedRoutes": true,
+			"reactCompiler": true,
+			"tsconfigPaths": true
+		}
+	}
+}
