@@ -53,7 +53,7 @@ export function useBleScanner() {
 			} else {
 				setIsScanning(false);
 			}
-		}, false);
+		}, true);
 
 		if (result.isErr()) {
 			console.error('Error starting scan', result.error);
