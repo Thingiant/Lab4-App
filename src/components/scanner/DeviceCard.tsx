@@ -59,14 +59,6 @@ export const DeviceCard = ({ device, connectionStatus, onPress, disabled = false
 							<Text style={[styles.deviceName, isUnknown && styles.deviceNameUnknown]} numberOfLines={1}>
 								{displayName}
 							</Text>
-							<Text style={styles.deviceId} numberOfLines={1}>
-								{device.id}
-							</Text>
-							{device.serviceUUIDs && device.serviceUUIDs.length > 0 && (
-								<Text style={styles.serviceCount}>
-									{device.serviceUUIDs.length} service{device.serviceUUIDs.length > 1 ? 's' : ''}
-								</Text>
-							)}
 						</VStack>
 					</HStack>
 					<HStack style={styles.rightSection}>
@@ -123,9 +115,10 @@ const styles = StyleSheet.create((theme) => ({
 	},
 	infoSection: {
 		flex: 1,
+		marginLeft: theme.spacing.large
 	},
 	deviceName: {
-		...theme.textVariants.body1,
+		...theme.textVariants.heading2,
 		fontWeight: '600',
 		color: theme.colors.contentPrimary,
 		marginBottom: 2,
@@ -138,11 +131,6 @@ const styles = StyleSheet.create((theme) => ({
 		...theme.textVariants.body3,
 		color: theme.colors.contentTertiary,
 		fontFamily: 'monospace',
-	},
-	serviceCount: {
-		...theme.textVariants.body3,
-		color: theme.colors.contentAccent,
-		marginTop: 2,
 	},
 	rightSection: {
 		alignItems: 'center',
